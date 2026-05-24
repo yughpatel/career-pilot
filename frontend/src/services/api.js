@@ -57,18 +57,37 @@ async function handleResponse(response) {
     }
   } else {
     try {
+
       const text = await response.text();
       data = { error: text || response.statusText };
     } catch {
+
+      data = { error: await response.text() };
+    } catch (e) {
+
       data = { error: response.statusText };
     }
   }
 
   if (!response.ok) {
+
     const error = new Error(
       (data && data.error) || `Server error (${response.status})`
     );
     error.status = response.status;
+
+    const error = new Error((data && data.error) || response.statusText || 'Something went wrong');
+    error.status = response.status;
+
+    if (response.status === 429) {
+      error.retryAfter = parseRetryAfter(response.headers.get('retry-after'));
+      error.rateLimit = {
+        limit: parseHeaderInt(response.headers.get('x-ratelimit-limit')),
+        remaining: parseHeaderInt(response.headers.get('x-ratelimit-remaining')),
+        reset: parseHeaderInt(response.headers.get('x-ratelimit-reset'))
+      };
+    }
+
     throw error;
   }
 

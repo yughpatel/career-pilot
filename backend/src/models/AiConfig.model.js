@@ -23,4 +23,6 @@ const aiConfigSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
+aiConfigSchema.index({ uid: 1, provider: 1 }, { background: true });
+
 export default mongoose.model('AiConfig', aiConfigSchema);
