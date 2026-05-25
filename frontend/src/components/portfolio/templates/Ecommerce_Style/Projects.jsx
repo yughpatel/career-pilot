@@ -82,7 +82,7 @@ export default function Projects() {
           {/* Cart Button */}
           <div
             className="hidden lg:inline-flex absolute right-0 top-0 items-center gap-3 border border-stone-300 bg-white/70 backdrop-blur-xl rounded-full px-5 py-3 shadow-sm"
-            style={{ fontFamily: "font-sans" }}
+            style={{ fontFamily: "sans-serif" }}
           >
 
             <ShoppingCart size={18} className="text-stone-700" />
@@ -103,7 +103,7 @@ export default function Projects() {
 
               <span
                 className="text-sm font-semibold text-stone-700"
-                style={{ fontFamily: "font-sans" }}
+                style={{ fontFamily: "sans-serif" }}
               >
                 Premium Ecommerce Showcase
               </span>
@@ -124,7 +124,7 @@ export default function Projects() {
             {/* Description */}
             <p
               className="mt-6 text-stone-500 max-w-xl text-lg leading-relaxed"
-              style={{ fontFamily: "font-sans" }}
+              style={{ fontFamily: "sans-serif" }}
             >
               Carefully crafted premium digital products inspired by modern ecommerce experiences with sleek UI, immersive interactions, and luxury aesthetics.
             </p>
@@ -215,7 +215,7 @@ export default function Projects() {
                   {/* Subtitle */}
                   <p
                     className="text-xs uppercase tracking-[0.25em] text-stone-400 mb-2"
-                    style={{ fontFamily: "font-sans" }}
+                    style={{ fontFamily: "sans-serif" }}
                   >
                     {p.subtitle}
                   </p>
@@ -228,7 +228,7 @@ export default function Projects() {
                   {/* Description */}
                   <p
                     className="text-stone-500 leading-relaxed text-sm mb-4"
-                    style={{ fontFamily: "font-sans" }}
+                    style={{ fontFamily: "sans-serif" }}
                   >
                     {p.description}
                   </p>
@@ -236,7 +236,7 @@ export default function Projects() {
                   {/* Tech Stack */}
                   <div
                     className="flex flex-wrap gap-2 mb-6"
-                    style={{ fontFamily: "font-sans" }}
+                    style={{ fontFamily: "sans-serif" }}
                   >
 
                     {p.tech.map((t) => (
@@ -263,7 +263,7 @@ export default function Projects() {
 
                     <span
                       className="text-xs text-stone-400 ml-1"
-                      style={{ fontFamily: "font-sans" }}
+                      style={{ fontFamily: "sans-serif"}}
                     >
                       5.0 Rating
                     </span>
@@ -281,7 +281,7 @@ export default function Projects() {
 
                         <p
                           className="text-sm text-stone-400 line-through mb-1"
-                          style={{ fontFamily: "font-sans" }}
+                          style={{ fontFamily: "sans-serif" }}
                         >
                           {p.slashPrice}
                         </p>
@@ -300,7 +300,7 @@ export default function Projects() {
 
                       <div
                         className="text-xs text-stone-400"
-                        style={{ fontFamily: "font-sans" }}
+                        style={{ fontFamily: "sans-serif" }}
                       >
                         Lifetime Access
                       </div>
@@ -330,7 +330,7 @@ export default function Projects() {
                     <button
                       onClick={() => alert("Project preview coming soon")}
                       className="w-full flex items-center justify-center gap-2 mt-3 text-sm font-semibold text-stone-500 hover:text-stone-900 transition-all group/arrow"
-                      style={{ fontFamily: "font-sans" }}
+                      style={{ fontFamily: "sans-serif" }}
                     >
 
                       View Project
@@ -351,7 +351,7 @@ export default function Projects() {
         {/* Footer */}
         <div
           className="mt-10 pt-8 border-t border-stone-300 flex flex-col md:flex-row items-start md:items-center justify-center gap-5"
-          style={{ fontFamily: "font-sans" }}
+          style={{ fontFamily: "sans-serif" }}
         >
 
         <p className="text-sm text-stone-400">
