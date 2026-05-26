@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
-const Testimonials = ({ testimonials }) => (
+const Testimonials = ({ testimonials = [] }) => (
   <section className="relative max-w-5xl mx-auto py-8 sm:py-10 md:py-20 px-5 md:px-6 overflow-hidden">
     <motion.h2
       initial={{ opacity: 0, y: 24, rotateX: 18 }}
@@ -32,9 +32,9 @@ const Testimonials = ({ testimonials }) => (
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.12, delayChildren: 0.06 } } }}
       className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8"
     >
-      {testimonials.map((t, i) => (
+      {testimonials.map((t) => (
         <motion.div
-          key={i}
+          key={`${t.name}-${t.role}`}
           variants={{ hidden: { opacity: 0, y: 44, scale: 0.88, rotateX: 14 }, show: { opacity: 1, y: 0, scale: 1, rotateX: 0 } }}
           whileHover={{ y: -8, scale: 1.02 }}
           className="bg-slate-900/60 p-4 md:p-8 rounded-2xl border border-slate-800 shadow-[0_12px_40px_rgba(0,0,0,0.16)]"

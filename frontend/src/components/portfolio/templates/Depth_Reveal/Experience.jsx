@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { BriefcaseBusiness } from 'lucide-react';
 
-const Experience = ({ experience }) => (
+const Experience = ({ experience = [] }) => (
   <section className="relative max-w-4xl mx-auto py-8 sm:py-10 md:py-20 px-5 md:px-6 overflow-hidden">
     <motion.h2
       initial={{ opacity: 0, y: 24, rotateX: 18 }}

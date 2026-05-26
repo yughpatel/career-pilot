@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Github, Twitter, MapPin, SendHorizontal } from 'lucide-react';
 
-const Contact = ({ data, socials }) => {
+const Contact = ({ data = {}, socials = {} }) => {
   const [formStatus, setFormStatus] = useState('idle');
+  const sendTimerRef = useRef(null);
+  const resetTimerRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (sendTimerRef.current) window.clearTimeout(sendTimerRef.current);
+      if (resetTimerRef.current) window.clearTimeout(resetTimerRef.current);
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formStatus !== 'idle') return;
     setFormStatus('sending');
-    window.setTimeout(() => setFormStatus('sent'), 900);
+    sendTimerRef.current = window.setTimeout(() => {
+      setFormStatus('sent');
+      resetTimerRef.current = window.setTimeout(() => setFormStatus('idle'), 1400);
+    }, 900);
   };
 
   return (
@@ -51,13 +64,13 @@ const Contact = ({ data, socials }) => {
       >
         <h3 className="text-xl font-semibold mb-4">Contact Channels</h3>
         <div className="space-y-4">
-          {socials.email && (
+          {socials?.email && (
             <a href={`mailto:${socials.email}`} className="flex items-center gap-3 text-slate-300 hover:text-cyan-300 transition-colors">
               <Mail size={18} className="text-cyan-300" />
               <span>{socials.email}</span>
             </a>
           )}
-          {data.location && (
+          {data?.location && (
             <div className="flex items-center gap-3 text-slate-300">
               <MapPin size={18} className="text-cyan-300" />
               <span>{data.location}</span>
@@ -66,19 +79,19 @@ const Contact = ({ data, socials }) => {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3">
-          {socials.linkedin && (
+          {socials?.linkedin && (
             <a href={socials.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-slate-200">
               <Linkedin size={16} />
               <span>LinkedIn</span>
             </a>
           )}
-          {socials.github && (
+          {socials?.github && (
             <a href={socials.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-slate-200">
               <Github size={16} />
               <span>GitHub</span>
             </a>
           )}
-          {socials.twitter && (
+          {socials?.twitter && (
             <a href={socials.twitter} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-slate-200">
               <Twitter size={16} />
               <span>Twitter</span>
@@ -96,19 +109,31 @@ const Contact = ({ data, socials }) => {
         className="rounded-2xl border border-slate-800 bg-slate-900/60 p-4 md:p-6 space-y-4"
       >
         <h3 className="text-xl font-semibold">Send a Message</h3>
+        <label htmlFor="contact-name" className="block text-sm text-slate-300">
+          Name
+        </label>
         <input
+          id="contact-name"
           type="text"
           required
           placeholder="Your name"
           className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 outline-none"
         />
+        <label htmlFor="contact-email" className="block text-sm text-slate-300">
+          Email
+        </label>
         <input
+          id="contact-email"
           type="email"
           required
           placeholder="Your email"
           className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 outline-none"
         />
+        <label htmlFor="contact-message" className="block text-sm text-slate-300">
+          Message
+        </label>
         <textarea
+          id="contact-message"
           required
           rows="4"
           placeholder="Tell me about your project"

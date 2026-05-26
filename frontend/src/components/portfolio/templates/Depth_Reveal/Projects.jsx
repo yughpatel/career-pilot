@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 
-const Projects = ({ projects }) => (
+const Projects = ({ projects = [] }) => (
   <section className="relative max-w-6xl mx-auto py-10 sm:py-12 md:py-20 px-4 md:px-6 overflow-hidden">
     <motion.div
       aria-hidden="true"
@@ -31,7 +31,7 @@ const Projects = ({ projects }) => (
     >
       {projects.map((proj, i) => (
         <motion.div
-          key={i}
+          key={`${proj.title}-${proj.liveUrl || proj.githubUrl || proj.description}`}
           variants={{ hidden: { opacity: 0, y: 48, scale: 0.86, rotateX: 18 }, show: { opacity: 1, y: 0, scale: 1, rotateX: 0 } }}
           whileHover={{ y: -10, scale: 1.02, rotateZ: i % 2 === 0 ? -0.5 : 0.5 }}
           transition={{ duration: 0.35 }}

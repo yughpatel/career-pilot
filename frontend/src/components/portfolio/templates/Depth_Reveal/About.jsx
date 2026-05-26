@@ -8,7 +8,7 @@ const About = ({ data, stats }) => (
       aria-hidden="true"
       initial={{ opacity: 0, scale: 0.7 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.9 }}
       className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_60%)]"
     />
@@ -16,7 +16,7 @@ const About = ({ data, stats }) => (
     <motion.div
       initial={{ opacity: 0, y: 24, rotateX: 18 }}
       whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
       className="relative text-center mb-12"
       style={{ transformPerspective: 900 }}
@@ -31,7 +31,7 @@ const About = ({ data, stats }) => (
       <motion.div
         initial={{ opacity: 0, y: 24, scale: 0.96 }}
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.82, delay: 0.06 }}
         className="max-w-4xl mx-auto w-full"
       >

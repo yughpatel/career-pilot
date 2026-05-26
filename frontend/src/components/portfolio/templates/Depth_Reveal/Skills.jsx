@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Skills = ({ skills }) => (
+const Skills = ({ skills = [] }) => (
   <section className="relative max-w-4xl mx-auto py-8 sm:py-10 md:py-20 px-5 md:px-6 overflow-hidden">
     <motion.h2
       initial={{ opacity: 0, y: 24, rotateX: 20 }}
@@ -31,33 +31,38 @@ const Skills = ({ skills }) => (
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06, delayChildren: 0.06 } } }}
       className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5"
     >
-      {skills.map((skill, i) => (
-        <motion.div
-          key={i}
-          variants={{ hidden: { opacity: 0, y: 24, scale: 0.78, rotateX: 16 }, show: { opacity: 1, y: 0, scale: 1, rotateX: 0 } }}
-          whileHover={{ y: -5, scale: 1.02 }}
-          className="p-3 md:p-5 bg-slate-900/70 border border-slate-800 rounded-2xl shadow-[0_0_0_1px_rgba(34,211,238,0.06)]"
-          style={{ transformPerspective: 800 }}
-        >
-          <div className="flex items-start justify-between gap-3 mb-3">
-            <div>
-              <p className="text-cyan-300 font-semibold">{skill.name}</p>
-              <p className="text-slate-500 text-xs mt-1">{skill.category}</p>
-            </div>
-            <span className="text-indigo-300 text-sm font-semibold">{skill.level}%</span>
-          </div>
+      {skills.map((skill) => {
+        const parsedLevel = Number(skill?.level);
+        const clampedLevel = Number.isFinite(parsedLevel) ? Math.min(100, Math.max(0, parsedLevel)) : 0;
 
-          <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: `${skill.level}%` }}
-              viewport={{ once: false, amount: 0.5 }}
-              transition={{ duration: 0.9, ease: 'easeOut' }}
-              className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500"
-            />
-          </div>
-        </motion.div>
-      ))}
+        return (
+          <motion.div
+            key={`${skill?.name || 'skill'}-${skill?.category || 'general'}`}
+            variants={{ hidden: { opacity: 0, y: 24, scale: 0.78, rotateX: 16 }, show: { opacity: 1, y: 0, scale: 1, rotateX: 0 } }}
+            whileHover={{ y: -5, scale: 1.02 }}
+            className="p-3 md:p-5 bg-slate-900/70 border border-slate-800 rounded-2xl shadow-[0_0_0_1px_rgba(34,211,238,0.06)]"
+            style={{ transformPerspective: 800 }}
+          >
+            <div className="flex items-start justify-between gap-3 mb-3">
+              <div>
+                <p className="text-cyan-300 font-semibold">{skill?.name}</p>
+                <p className="text-slate-500 text-xs mt-1">{skill?.category}</p>
+              </div>
+              <span className="text-indigo-300 text-sm font-semibold">{clampedLevel}%</span>
+            </div>
+
+            <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: `${clampedLevel}%` }}
+                viewport={{ once: false, amount: 0.5 }}
+                transition={{ duration: 0.9, ease: 'easeOut' }}
+                className="h-full bg-gradient-to-r from-cyan-400 to-indigo-500"
+              />
+            </div>
+          </motion.div>
+        );
+      })}
     </motion.div>
   </section>
 );

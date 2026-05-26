@@ -58,6 +58,7 @@ const Hero = ({ data, socials }) => (
       {socials.github && (
         <motion.a
           href={socials.github}
+          aria-label="GitHub profile"
           variants={{ hidden: { opacity: 0, y: 16, scale: 0.8 }, show: { opacity: 1, y: 0, scale: 1 } }}
           whileHover={{ y: -4, scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
@@ -69,6 +70,7 @@ const Hero = ({ data, socials }) => (
       {socials.linkedin && (
         <motion.a
           href={socials.linkedin}
+          aria-label="LinkedIn profile"
           variants={{ hidden: { opacity: 0, y: 16, scale: 0.8 }, show: { opacity: 1, y: 0, scale: 1 } }}
           whileHover={{ y: -4, scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
@@ -80,6 +82,7 @@ const Hero = ({ data, socials }) => (
       {socials.email && (
         <motion.a
           href={`mailto:${socials.email}`}
+          aria-label="Email"
           variants={{ hidden: { opacity: 0, y: 16, scale: 0.8 }, show: { opacity: 1, y: 0, scale: 1 } }}
           whileHover={{ y: -4, scale: 1.08 }}
           whileTap={{ scale: 0.95 }}
