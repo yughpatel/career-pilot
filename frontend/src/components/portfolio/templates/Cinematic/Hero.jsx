@@ -24,7 +24,6 @@ export default function Hero() {
           }
         `}
       </style>
-      </style>
       <section className="relative w-full min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] text-white font-sans selection:bg-neutral-800">
         {/* Cinematic Backdrop - Deep Gradient and Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-800/20 via-[#050505] to-[#050505] z-0"></div>
