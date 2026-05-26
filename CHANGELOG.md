@@ -1,3 +1,16 @@
+# [1.30.0](https://github.com/anurag3407/career-pilot/compare/v1.29.0...v1.30.0) (2026-05-26)
+
+
+### Bug Fixes
+
+* **2d-retro-8bit:** sanitize external links to prevent relative route redirection page not found ([e9190e8](https://github.com/anurag3407/career-pilot/commit/e9190e8349a3bef4cc97166340af6c384a0ca0db))
+
+
+### Features
+
+* **2d-retro-8bit:** add live preview of RetroProjects inside Template Gallery ([09abb36](https://github.com/anurag3407/career-pilot/commit/09abb360ea13ff60f1e40c3907b01d55bc70fa19))
+* **2d-retro-8bit:** implement high-fidelity interactive projects section and fix pre-existing compilation bugs ([be98899](https://github.com/anurag3407/career-pilot/commit/be988992d6c9e0db6ec7710184650d5d057c3125))
+
 # [1.29.0](https://github.com/anurag3407/career-pilot/compare/v1.28.0...v1.29.0) (2026-05-26)
 
 
