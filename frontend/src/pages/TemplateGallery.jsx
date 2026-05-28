@@ -11,7 +11,7 @@ import { X } from "lucide-react";
 // import ChooseAdventurePortfolio from "../components/portfolio/templates/Choose_Adventure/index";
 // import RetroProjects from "../components/portfolio/templates/2D_Retro_8bit/Projects";
 // import FantasyRPGProjects from "../components/portfolio/templates/Fantasy_RPG/Projects";
-// import GraffitiHero from "../components/portfolio/templates/Graffiti_StreetArt/Hero";
+import GraffitiHero from "../components/portfolio/templates/Graffiti_StreetArt/Hero";
 
 
 function FilterSelect({ value, onChange, options, className = "" }) {
