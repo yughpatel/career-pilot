@@ -17,7 +17,7 @@ const FooterContact = () => {
         {[{ icon: Github, url: data.socials.github, bg: 'bg-white', text: 'text-black', hover: 'hover:bg-[#E3000F] hover:text-white hover:border-[#E3000F]' }, { icon: Linkedin, url: data.socials.linkedin, bg: 'bg-[#00509E]', text: 'text-white', hover: 'hover:bg-[#FFD700] hover:text-black hover:border-[#FFD700]' }, { icon: Twitter, url: data.socials.twitter, bg: 'bg-[#FFD700]', text: 'text-black', hover: 'hover:bg-white hover:text-black hover:border-white' }].map((social, idx) => {
           const SocialIcon = social.icon;
           return (
-            <motion.a key={idx} href={social.url} whileHover={{ y: -5, rotate: 5 }} className={`w-14 h-14 md:w-20 md:h-20 ${social.bg} ${social.text} border-2 md:border-4 border-current flex items-center justify-center transition-colors ${social.hover} shrink-0`}>
+            <motion.a key={idx} href={social.url} target="_blank" rel="noopener noreferrer" whileHover={{ y: -5, rotate: 5 }} className={`w-14 h-14 md:w-20 md:h-20 ${social.bg} ${social.text} border-2 md:border-4 border-current flex items-center justify-center transition-colors ${social.hover} shrink-0`}>
               <SocialIcon className="w-6 h-6 md:w-10 md:h-10" />
             </motion.a>
           );

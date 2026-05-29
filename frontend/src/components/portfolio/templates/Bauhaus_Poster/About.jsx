@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
 import data from '../../../../data/dummy_data.json';
 
-const About = ({ colors }) => {
+const About = () => {
   return (
     <section className="p-6 md:p-16 border-b-4 border-black bg-white grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
       <div className="md:col-span-4 flex justify-center">
@@ -12,7 +12,7 @@ const About = ({ colors }) => {
         </motion.div>
       </div>
       <div className="md:col-span-8">
-        <h2 className="text-4xl md:text-7xl font-black uppercase mb-6 flex items-center gap-4">Overview <span className="h-2 md:h-4 flex-grow bg-black"></span></h2>
+        <h2 className="text-4xl md:text-7xl font-black uppercase mb-6 flex items-center gap-4">Overview <span className="h-2 md:h-4 grow bg-black"></span></h2>
         <p className="text-lg md:text-3xl font-medium leading-relaxed mb-6 md:mb-8">{data.personal.bio}</p>
         <div className="flex flex-wrap md:flex-nowrap gap-6 md:gap-8 font-black text-base md:text-xl uppercase border-t-4 border-black pt-6 md:pt-8">
           <div className="flex items-center gap-3 md:gap-4 group">

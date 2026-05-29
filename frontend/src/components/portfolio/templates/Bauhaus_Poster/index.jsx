@@ -11,9 +11,10 @@ import FooterContact from './FooterContact';
 // Required data import per issue description
 import data from '../../../../data/dummy_data.json';
 
+const colors = ['#E3000F', '#00509E', '#FFD700', '#000000', '#FFFFFF'];
+
 const BauhausPortfolioIntegrated = () => {
   // Bauhaus Primary Palette
-  const colors = ['#E3000F', '#00509E', '#FFD700', '#000000', '#FFFFFF'];
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -26,7 +27,10 @@ const BauhausPortfolioIntegrated = () => {
   // Generate static random values for background shapes so they don't jump on re-renders
   // Optimized for mobile performance (removed blur filters which break mobile renderers)
   const backgroundShapes = useMemo(() => {
-    const brightShapes = Array.from({ length: 20 }).map((_, i) => {
+    const brightCount = isMobile ? 8 : 20;
+    const darkCount = isMobile ? 5 : 12;
+
+    const brightShapes = Array.from({ length: brightCount }).map((_, i) => {
       const size = Math.random() * 60 + 20; // Slightly smaller base sizes for mobile
       const isTriangle = Math.random() > 0.7;
       return {
@@ -44,7 +48,7 @@ const BauhausPortfolioIntegrated = () => {
       };
     });
 
-    const darkShapes = Array.from({ length: 12 }).map((_, i) => {
+    const darkShapes = Array.from({ length: darkCount }).map((_, i) => {
       const size = Math.random() * 100 + 40;
       const points = [
         [0, 10], [18, 0], [44, 8], [70, 2], [100, 18], [92, 52], [100, 78], [72, 100], [38, 92], [12, 100], [0, 74], [8, 42]
@@ -116,7 +120,7 @@ const BauhausPortfolioIntegrated = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto bg-[#F4F0EC]/90 md:bg-[#F4F0EC]/80 backdrop-blur-sm border-x-0 md:border-x-4 border-black flex flex-col md:shadow-[24px_0px_0px_0px_rgba(0,0,0,1)]">
 
         <Hero colors={colors} />
-        <About colors={colors} />
+        <About />
         <Skills colors={colors} />
         <Projects />
         <Experience />

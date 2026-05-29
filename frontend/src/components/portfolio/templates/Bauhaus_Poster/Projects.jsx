@@ -20,8 +20,8 @@ const Projects = () => {
               <p className="text-base md:text-lg font-bold mb-5 md:mb-6 flex-grow border-l-4 md:border-l-8 border-[#00509E] pl-3 md:pl-4">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-6 md:mb-8">{project.techStack.map((tech, idx) => (<span key={idx} className="bg-[#F4F0EC] text-xs md:text-sm font-black px-2 py-1 md:px-3 uppercase border-2 border-black whitespace-nowrap">{tech}</span>))}</div>
               <div className="flex flex-row gap-3 md:gap-4 mt-auto">
-                <a href={project.liveUrl} className="flex-1 bg-[#FFD700] py-3 md:py-4 border-2 md:border-4 border-black font-black uppercase text-sm md:text-base text-center flex items-center justify-center gap-1 md:gap-2 hover:bg-black hover:text-[#FFD700] transition-colors whitespace-nowrap">Live <ArrowUpRight className="w-4 h-4 md:w-6 md:h-6"/></a>
-                <a href={project.githubUrl} className="flex-1 bg-white py-3 md:py-4 border-2 md:border-4 border-black font-black uppercase text-sm md:text-base text-center flex items-center justify-center gap-1 md:gap-2 hover:bg-[#E3000F] hover:text-white transition-colors whitespace-nowrap"><Github className="w-4 h-4 md:w-6 md:h-6"/> Code</a>
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-[#FFD700] py-3 md:py-4 border-2 md:border-4 border-black font-black uppercase text-sm md:text-base text-center flex items-center justify-center gap-1 md:gap-2 hover:bg-black hover:text-[#FFD700] transition-colors whitespace-nowrap">Live <ArrowUpRight className="w-4 h-4 md:w-6 md:h-6"/></a>
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1 bg-white py-3 md:py-4 border-2 md:border-4 border-black font-black uppercase text-sm md:text-base text-center flex items-center justify-center gap-1 md:gap-2 hover:bg-[#E3000F] hover:text-white transition-colors whitespace-nowrap"><Github className="w-4 h-4 md:w-6 md:h-6"/> Code</a>
               </div>
             </div>
           </motion.div>

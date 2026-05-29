@@ -27,13 +27,13 @@ const Hero = ({ colors }) => {
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: 'linear' }} className="absolute inset-0 bg-[#E3000F] mix-blend-multiply opacity-50 z-0" />
       </motion.div>
 
-      <motion.div className="flex flex-row flex-nowrap justify-center items-center mb-6 w-full max-w-[100vw] overflow-visible px-2" variants={containerVariants} initial="hidden" animate="visible">
+      <motion.h1 className="flex flex-row flex-nowrap justify-center items-center mb-6 w-full max-w-[100vw] overflow-visible px-2" variants={containerVariants} initial="hidden" animate="visible">
         {nameLetters.map((letter, index) => (
           <motion.span key={index} variants={letterVariants} whileHover={{ scale: 1.2, color: colors ? colors[index % 3] : '#E3000F', textShadow: '4px 4px 0px rgba(0,0,0,1)', y: -10, transition: { type: 'spring', stiffness: 300, damping: 10 } }} className="text-[8vw] sm:text-[6vw] md:text-8xl lg:text-9xl font-black uppercase tracking-tighter cursor-crosshair inline-block mx-[2px] md:mx-1 leading-none">
             {letter === ' ' ? '\u00A0' : letter}
           </motion.span>
         ))}
-      </motion.div>
+      </motion.h1>
 
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0, type: 'spring' }} className="bg-[#FFD700] px-4 py-2 md:px-8 md:py-4 border-2 md:border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-[#FFD700] transition-colors cursor-default max-w-full">
         <p className="text-xs sm:text-sm md:text-4xl font-black uppercase tracking-widest whitespace-normal leading-tight">{data.personal.title}</p>
