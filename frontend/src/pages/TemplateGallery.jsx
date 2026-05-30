@@ -208,8 +208,8 @@ const TemplatePreviewModal = ({ templateId, isOpen, onClose }) => {
   const Component = useMemo(() => {
     if (!templateId) return null;
     return React.lazy(() => 
-      import(`../components/portfolio/templates/${templateId}/Hero.jsx`).catch(() => 
-        import(`../components/portfolio/templates/${templateId}/index.jsx`)
+      import(`../components/portfolio/templates/${templateId}/index.jsx`).catch(() => 
+        import(`../components/portfolio/templates/${templateId}/Hero.jsx`)
       )
     );
   }, [templateId]);
@@ -372,6 +372,12 @@ export default function TemplateGallery() {
         isOpen={isDeployModalOpen}
         onClose={() => setIsDeployModalOpen(false)}
         portfolioTitle={selectedPortfolioTitle}
+      />
+
+      <TemplatePreviewModal
+        isOpen={previewTemplateId !== null}
+        templateId={previewTemplateId}
+        onClose={() => setPreviewTemplateId(null)}
       />
 
       {/* Holographic Theme */}
